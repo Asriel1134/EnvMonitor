@@ -46,13 +46,11 @@ public class CityController {
 
     @PostMapping("/Edit")
     public boolean edit(String province, String city, long AQI) {
-        System.out.println(province + city + AQI);
         return !Objects.equals(province, "") && !Objects.equals(city, "") && AQI != 0;
     }
 
     @PostMapping("/Add")
     public boolean add(String province, String city, long AQI) {
-        System.out.println(province + city + AQI);
         return !Objects.equals(province, "") && !Objects.equals(city, "") && AQI != 0;
     }
 }
