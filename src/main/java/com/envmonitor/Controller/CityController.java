@@ -41,16 +41,26 @@ public class CityController {
 
     @PostMapping("/Delete")
     public boolean delete(String province, String city) {
-        return !Objects.equals(province, "") && !Objects.equals(city, "");
+        return cityService.deleteCity(city)==1;
     }
 
     @PostMapping("/Edit")
-    public boolean edit(String province, String city, long AQI) {
-        return !Objects.equals(province, "") && !Objects.equals(city, "") && AQI != 0;
+    public boolean edit(String province, String city, long AQI, long cityId, long provinceId) {
+        City cityE = new City();
+        cityE.setName(city);
+        cityE.setAqi(AQI);
+        cityE.setId(cityId);
+        cityE.setProvinceId(provinceId);
+        return cityService.updateCity(cityE)==1;
     }
 
     @PostMapping("/Add")
-    public boolean add(String province, String city, long AQI) {
-        return !Objects.equals(province, "") && !Objects.equals(city, "") && AQI != 0;
+    public boolean add(String province, String city, long AQI, long cityId, long provinceId) {
+        City cityE = new City();
+        cityE.setName(city);
+        cityE.setAqi(AQI);
+        cityE.setId(cityId);
+        cityE.setProvinceId(provinceId);
+        return cityService.addCity(cityE)==1;
     }
 }
